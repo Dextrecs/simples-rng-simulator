@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple's RNG</title>
-    <link rel="favicon" href="assets/favicon.png">
+    <link rel="favicon" href="assets/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -53,7 +53,8 @@
 
                 <div class="bottom-actions">
                     <button id="btn-credits" onclick="toggleCreditsModal()"><i class="fas fa-info-circle"></i> Credits</button>
-                    <button id="btn-update-log" onclick="toggleUpdateLogModal()"><i class="fas fa-clipboard-list"></i> Update Log</button> <button id="btn-settings" onclick="toggleSettings()"><i class="fas fa-cog"></i> Settings</button>
+                    <button id="btn-update-log" onclick="toggleUpdateLogModal()"><i class="fas fa-clipboard-list"></i> Update Log</button>
+                    <button id="btn-settings" onclick="toggleSettings()"><i class="fas fa-cog"></i> Settings</button>
                 </div>
             </div>
             
@@ -96,8 +97,7 @@
                 <button onclick="applyCustomTheme()">Set</button>
             </div>
             <div class="setting-group">
-                <label>Particles:</label>
-                <button id="toggle-particles" class="btn-toggle">ON</button>
+                <button id="toggle-particles" class="btn-toggle">Particles: ON</button>
             </div>
             <div class="setting-group">
                 <button class="btn-sell" onclick="if(confirm('Reset all progress?')){localStorage.clear();location.reload();}">Reset Save</button>
@@ -106,20 +106,20 @@
     </div>
     
     <div id="update-log-modal" class="modal hidden">
-    <div class="modal-content">
-        <span class="close" onclick="toggleUpdateLogModal()">&times;</span>
-        <h1><i class="fas fa-clipboard-list"></i> Update Log</h1>
-        <div id="update-log-content" style="max-height: 300px; overflow-y: auto; padding-right: 10px;">
-            </div>
+        <div class="modal-content">
+            <span class="close" onclick="toggleUpdateLogModal()">&times;</span>
+            <h1><i class="fas fa-clipboard-list"></i> Update Log</h1>
+            <div id="update-log-content" style="max-height: 300px; overflow-y: auto; padding-right: 10px;">
+                </div>
+        </div>
     </div>
-</div>
-
+    
     <div id="credits-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close" onclick="toggleCreditsModal()">&times;</span>
             <h1>Credits</h1>
             <h3>Developed By :</h3>
-            <p>Dextrecs</p>
+            <a href="https://github.com/Dextrecs">Dextrecs</a>
             <h3>Design Inspired By :</h3>
             <p>*i dont genuinely know whats this was inspired on*</p>
             <h3>Coded By :</h3>
@@ -155,4 +155,5 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
+            
