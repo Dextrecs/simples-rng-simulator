@@ -686,7 +686,7 @@ function initParticles() {
 
 document.getElementById('toggle-particles').addEventListener('click', () => {
     state.settings.particles = !state.settings.particles;
-    document.getElementById('toggle-particles').innerText = state.settings.particles ? "ON" : "OFF";
+    document.getElementById('toggle-particles').innerText = state.settings.particles ? "Particles: ON" : "Particles: OFF";
     if(state.settings.particles) initParticles();
     saveGame();
 });
