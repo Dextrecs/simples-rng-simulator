@@ -48,3 +48,4 @@ I will review your suggested changes, and if everything looks good, your code wi
 Live Website : https://dextrecs.github.io/simples-rng-simulator/
 
 Thanks for checking out Simple's RNG!
+*THIS REPO WAS MADE FOR FUN!!!*
