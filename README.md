@@ -22,6 +22,29 @@ Found a Bug? Report it on the [Issues tab].
 
 Have an Idea for an Addon? Fork the repository and submit a Pull Request (PR) with your changes. (e.g., New Rarities, achievements, or UI tweaks!)
 
+🤝 How to Contribute
+We welcome and encourage contributions to make Simple's RNG even better!
+
+1. Find an Idea
+Check the [Issues tab] to see if there are any reported bugs or feature requests you can tackle. Alternatively, come up with your own idea for a new rarity, a settings option, or a game mechanic!
+
+2. Fork the Repository
+Create a copy of this entire project under your own GitHub account by clicking the Fork button. This is your personal workspace.
+
+3. Make Your Changes
+Clone your forked repository to your local computer (or edit files directly on GitHub).
+Make your desired fixes or additions to the files (script.js, style.css, etc.).
+
+4. Create a Pull Request (PR)
+Commit your changes to your forked repository.
+
+Go back to your forked repository on GitHub and click the Contribute button, then select Open pull request.
+
+Fill out the PR form with a clear title (e.g., "FEAT: Added 5 new ultra-rarities") and explain what your changes do.
+Submit the PR!
+
+I will review your suggested changes, and if everything looks good, your code will be merged into the official Simple's RNG
+
 Live Website : https://dextrecs.github.io/simples-rng-simulator/
 
 Thanks for checking out Simple's RNG!
