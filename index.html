@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple's RNG</title>
+    <link rel="favicon" href="assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <header>
+        <h1>Simple's RNG</h1>
+        <p>Simplest RNG yet Customisable.</p>
+    </header>
+
+    <main class="game-container">
+        
+        <div class="header-status">
+            <span id="money-display"><i class="fas fa-coins"></i> $<span id="money">0</span></span>
+        </div>
+        
+        <div class="main-grid">
+            
+            <div id="shop-section" class="grid-panel shop-panel">
+                <h2><i class="fas fa-store"></i> Shop</h2>
+                
+                <div class="shop-actions">
+                    <p>Increase Luck</p>
+                    <button onclick="buyUpgrade('luck')" title="Luck Upgrade"><i class="fas fa-leaf"></i> Buy</button>
+                </div>
+
+                <div class="shop-actions">
+                    <p>Sell Commons</p>
+                    <button class="btn-sell" onclick="confirmSellAllCommons()"><i class="fas fa-trash"></i> Sell</button>
+                </div>
+
+                <div id="auto-roll-container" class="auto-roll-manager">
+                    </div>
+            </div>
+
+            <div class="roll-center-panel">
+                <div class="roll-area">
+                    <div id="rarity-badge">Ready?</div>
+                    <h2 id="item-name">Roll!</h2>
+                    
+                    <div class="main-actions">
+                        <button id="btn-roll" class="btn-primary"><i class="fas fa-dice"></i> Roll</button>
+                    </div>
+                </div>
+
+                <div class="bottom-actions">
+                    <button id="btn-credits" onclick="toggleCreditsModal()"><i class="fas fa-info-circle"></i> Credits</button>
+                    <button id="btn-update-log" onclick="toggleUpdateLogModal()"><i class="fas fa-clipboard-list"></i> Update Log</button> <button id="btn-settings" onclick="toggleSettings()"><i class="fas fa-cog"></i> Settings</button>
+                </div>
+            </div>
+            
+            <div id="inventory-section" class="grid-panel inventory-panel">
+                <div class="inventory-header">
+                    <h2><i class="fas fa-box-open"></i> Items</h2>
+                    <button id="btn-select-mode" title="Select Items"><i class="fas fa-check-square"></i></button>
+                </div>
+                
+                <div id="inventory-grid" class="inventory-grid">
+                    </div>
+
+                <div id="selection-footer" class="hidden">
+                    <button id="btn-cancel-select"><i class="fas fa-times"></i></button>
+                    <button id="btn-sell-selected" class="btn-sell">Sell (<span id="selected-count">0</span>)</button>
+                </div>
+            </div>
+
+        </div> 
+    </main>
+
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="toggleSettings()">&times;</span>
+            <h2>Settings</h2>
+            <div class="setting-group">
+                <label>SFX Volume:</label>
+                <input type="range" id="vol-sfx" min="0" max="100" value="100">
+            </div>
+            <div class="setting-group">
+                <label>Theme:</label>
+                <select id="theme-select">
+                    <option value="light">Light (Default)</option>
+                    <option value="dark">Dark</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+            <div id="custom-theme-input" class="setting-group hidden">
+                <input type="url" id="custom-bg-url" placeholder="Image URL">
+                <button onclick="applyCustomTheme()">Set</button>
+            </div>
+            <div class="setting-group">
+                <label>Particles:</label>
+                <button id="toggle-particles" class="btn-toggle">ON</button>
+            </div>
+            <div class="setting-group">
+                <button class="btn-sell" onclick="if(confirm('Reset all progress?')){localStorage.clear();location.reload();}">Reset Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom-actions">
+    <button id="btn-credits" onclick="toggleCreditsModal()"><i class="fas fa-info-circle"></i> Credits</button>
+    <button id="btn-update-log" onclick="toggleUpdateLogModal()"><i class="fas fa-clipboard-list"></i> Update Log</button> 
+    <button id="btn-settings" onclick="toggleSettings()"><i class="fas fa-cog"></i> Settings</button>
+</div>
+
+    <div id="update-log-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="toggleUpdateLogModal()">&times;</span>
+        <h1><i class="fas fa-clipboard-list"></i> Update Log</h1>
+        <div id="update-log-content" style="max-height: 300px; overflow-y: auto; padding-right: 10px;">
+            </div>
+    </div>
+</div>
+
+    <div id="credits-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCreditsModal()">&times;</span>
+            <h1>Credits</h1>
+            <h3>Developed By :</h3>
+            <p>Dextrecs</p>
+            <h3>Design Inspired By :</h3>
+            <p>*i dont genuinely know whats this was inspired on*</p>
+            <h3>Coded By :</h3>
+            <p>Dextrecs & Gemini ( does some help lol )</p>
+        </div>
+    </div>
+
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="confirmation-title">Confirm</h3>
+            <p id="confirmation-message">Are you sure?</p>
+            <div class="confirm-buttons">
+                <button id="btn-confirm-yes" class="btn-primary">Yes</button>
+                <button id="btn-confirm-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="context-menu-modal" class="modal hidden">
+        <div class="modal-content context-menu">
+            <span class="close" onclick="hideContextMenu()">&times;</span>
+            <h3 id="context-menu-rarity-name" data-rarity="">Item</h3>
+            <p>Owned: <span id="context-menu-count">0</span></p>
+            <div class="context-actions">
+                <button id="context-sell-one">Sell 1 (<span id="context-menu-value">$0</span>)</button>
+                <button id="context-sell-all" class="btn-sell">Sell All</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="sfx-roll" src="assets/roll.mp3"></audio>
+    <audio id="sfx-legendary" src="assets/legendary.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
