@@ -22,4 +22,6 @@ Found a Bug? Report it on the [Issues tab].
 
 Have an Idea for an Addon? Fork the repository and submit a Pull Request (PR) with your changes. (e.g., New Rarities, achievements, or UI tweaks!)
 
+Live Website : https://dextrecs.github.io/simples-rng-simulator/
+
 Thanks for checking out Simple's RNG!
