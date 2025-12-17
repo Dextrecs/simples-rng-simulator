@@ -14,7 +14,7 @@ Automation: Buy and upgrade the Auto-Roll feature to grind for high-tier items h
 Inventory & Selling: Manage your collection, sell common items in bulk, or choose specific rarities for profit.
 Customization: Includes theme options and particle effects for a personalized experience. (*dont expect for fully customisable interface.*)
 
-#💻 Open-Source & Community Driven (i guess..)
+<h2>💻 Open-Source & Community Driven</h2>(i guess)
 
 This project was built from scratch as a learning exercise and is now fully open-source under the MIT License.
 
@@ -46,10 +46,9 @@ Go back to your forked repository on GitHub and click the Contribute button, the
 Fill out the PR form with a clear title (e.g., "FEAT: Added 5 new ultra-rarities") and explain what your changes do.
 Submit the PR!
 
-I will review your suggested changes, and if everything looks good, your code will be merged into the official Simple's RNG
+I will review your suggested changes, and if everything looks good, your code will be merged into the official Simple's RNG.
 
-<h3>Live Website :</h3> 
-https://dextrecs.github.io/simples-rng-simulator/
+<h3>Live Website :</h3>https://dextrecs.github.io/simples-rng-simulator/
 
 Thanks for checking out Simple's RNG!
 
